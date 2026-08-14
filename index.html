@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>온수의 하루 기록표</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="하루 기록">
+<meta name="theme-color" content="#E9E1CC">
+<link rel="apple-touch-icon" href="data:image/png;base64,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XyUAA6w1T9d6WuB6XgGNNPnrIKMf9iYA402YAaMfCgRgFpNkwOiHDgGYy8AMGP1QIwAzOjkDRj80CcDUDi2BuQ9xArCGO5bA3AcuBGBJr+qBiQ98lgAARPkmMECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBA1P8BUARZHwJttOEAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,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XyUAA6w1T9d6WuB6XgGNNPnrIKMf9iYA402YAaMfCgRgFpNkwOiHDgGYy8AMGP1QIwAzOjkDRj80CcDUDi2BuQ9xArCGO5bA3AcuBGBJr+qBiQ98lgAARPkmMECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBA1P8BUARZHwJttOEAAAAASUVORK5CYII=">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #E9E1CC;
+    --card: #FBF8F0;
+    --ink: #322E27;
+    --ink-soft: #6b6355;
+    --line: #d9cfb4;
+    --blue: #4C7EA8;
+    --blue-soft: #e4edf3;
+    --gold: #B4841F;
+    --gold-soft: #f4ecd8;
+    --rose: #B24A63;
+    --rose-soft: #f4e2e6;
+    --shadow: 0 2px 10px rgba(60,50,30,0.10);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 1px 1px, rgba(60,50,30,0.05) 1px, transparent 0) 0 0/16px 16px,
+      var(--paper);
+    color:var(--ink);
+    font-family:'Noto Sans KR', sans-serif;
+    padding-bottom:120px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  header{
+    padding:28px 20px 18px;
+    max-width:640px;
+    margin:0 auto;
+    position:relative;
+  }
+  .eyebrow{
+    font-family:'Gowun Batang', serif;
+    font-size:13px;
+    color:var(--ink-soft);
+    border-bottom:1px solid var(--line);
+    display:inline-block;
+    padding-bottom:6px;
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Gowun Batang', serif;
+    font-size:26px;
+    font-weight:700;
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+  }
+  .date-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:14px;
+  }
+  .date-row input[type=date]{
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:14px;
+    padding:7px 10px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--ink);
+  }
+  .tab{
+    position:fixed;
+    top:0;
+    right:22px;
+    background:linear-gradient(180deg, #F2C879, #E3A94A);
+    color:#3a2a08;
+    font-family:'Gowun Batang', serif;
+    font-weight:700;
+    padding:10px 16px 12px;
+    border-radius:0 0 10px 10px;
+    box-shadow:var(--shadow);
+    z-index:20;
+    text-align:center;
+    min-width:64px;
+    transform-origin:top center;
+  }
+  .tab .num{ font-size:20px; line-height:1; display:block; }
+  .tab .denom{ font-size:10px; opacity:0.75; }
+
+  main{ max-width:640px; margin:0 auto; padding:6px 20px; }
+
+  .card{
+    background:var(--card);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    margin-bottom:14px;
+    overflow:hidden;
+    border:1px solid rgba(60,50,30,0.06);
+  }
+  .card-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    padding:14px 16px 8px;
+  }
+  .card-head .name{
+    font-weight:700;
+    font-size:15px;
+  }
+  .card-head .no{
+    color:var(--ink-soft);
+    font-size:12px;
+    margin-right:6px;
+  }
+  .card-head .status{
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  .options{ padding:0 10px 12px; display:flex; flex-direction:column; gap:6px; }
+
+  .opt{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    text-align:left;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1.5px solid var(--line);
+    background:transparent;
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:13.5px;
+    color:var(--ink);
+    cursor:pointer;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease;
+  }
+  .opt:active{ transform:scale(0.98); }
+  .opt .pt{
+    flex:0 0 auto;
+    width:26px; height:26px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:700;
+    border:1.5px solid currentColor;
+  }
+  .opt .txt{ flex:1; line-height:1.35; }
+
+  .opt.tier1{ color:var(--ink); }
+  .opt.tier1 .pt{ color:var(--blue); }
+  .opt.tier1.selected{ background:var(--blue-soft); border-color:var(--blue); }
+  .opt.tier1.selected .pt{ background:var(--blue); color:#fff; }
+
+  .opt.tier2 .pt{ color:var(--gold); }
+  .opt.tier2.selected{ background:var(--gold-soft); border-color:var(--gold); }
+  .opt.tier2.selected .pt{ background:var(--gold); color:#fff; }
+
+  .opt.tier3 .pt{ color:var(--rose); }
+  .opt.tier3.selected{ background:var(--rose-soft); border-color:var(--rose); }
+  .opt.tier3.selected .pt{ background:var(--rose); color:#fff; }
+
+  .opt.disabled{
+    opacity:0.35;
+    cursor:default;
+    border-style:dashed;
+  }
+  .opt.disabled:active{ transform:none; }
+
+  .opt.tier0{ color:var(--ink-soft); }
+  .opt.tier0 .pt{ color:var(--ink-soft); }
+  .opt.tier0.selected{ background:#ECE7DA; border-color:var(--ink-soft); }
+  .opt.tier0.selected .pt{ background:var(--ink-soft); color:#fff; }
+
+  .legend{
+    display:flex; gap:14px; padding:2px 4px 16px; font-size:11.5px; color:var(--ink-soft);
+    flex-wrap:wrap;
+  }
+  .legend span{ display:inline-flex; align-items:center; gap:5px; }
+  .dot{ width:9px; height:9px; border-radius:50%; display:inline-block; }
+  .dot.b{ background:var(--blue); }
+  .dot.g{ background:var(--gold); }
+  .dot.r{ background:var(--rose); }
+
+  .footer-bar{
+    position:fixed;
+    bottom:0; left:0; right:0;
+    background:linear-gradient(180deg, rgba(233,225,204,0), var(--paper) 22%);
+    padding:18px 20px 22px;
+    z-index:15;
+  }
+  .footer-inner{ max-width:640px; margin:0 auto; display:flex; gap:10px; }
+  .submit-btn{
+    flex:1;
+    background:var(--ink);
+    color:#F7F1E1;
+    border:none;
+    border-radius:12px;
+    padding:15px;
+    font-family:'Gowun Batang', serif;
+    font-size:16px;
+    font-weight:700;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+  }
+  .submit-btn:active{ transform:scale(0.98); }
+  .reset-btn{
+    background:transparent;
+    border:1.5px solid var(--line);
+    color:var(--ink-soft);
+    border-radius:12px;
+    padding:15px 16px;
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:13px;
+    cursor:pointer;
+  }
+
+  .toast{
+    position:fixed; left:50%; bottom:100px; transform:translateX(-50%) translateY(20px);
+    background:var(--ink); color:#F7F1E1; padding:10px 18px; border-radius:20px;
+    font-size:13px; opacity:0; transition:opacity .25s ease, transform .25s ease;
+    pointer-events:none; z-index:30;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+  section.history{
+    max-width:640px; margin:8px auto 0; padding:20px 20px 10px;
+  }
+  .history h2{
+    font-family:'Gowun Batang', serif; font-size:18px; margin:0 0 4px;
+  }
+  .history p.sub{ font-size:12.5px; color:var(--ink-soft); margin:0 0 16px; }
+  .chart-card{
+    background:var(--card); border-radius:14px; box-shadow:var(--shadow);
+    padding:16px 14px 10px; border:1px solid rgba(60,50,30,0.06);
+  }
+  canvas{ width:100%; display:block; }
+  .chart-empty{
+    text-align:center; color:var(--ink-soft); font-size:13px; padding:30px 10px;
+  }
+</style>
+</head>
+<body>
+
+<div class="tab" id="tab">
+  <span class="num" id="tabScore">0</span>
+  <span class="denom">/ <span id="tabMax">30</span></span>
+</div>
+
+<header>
+  <div class="eyebrow">삶을 챙기며 꾸준히 오래 살아남는 그림책 일러스트레이터</div>
+  <h1>오늘의 루틴 기록</h1>
+  <div class="date-row">
+    <label for="dateInput" style="font-size:13px; color:var(--ink-soft);">기록할 날짜</label>
+    <input type="date" id="dateInput">
+  </div>
+</header>
+
+<main id="cardsRoot"></main>
+
+<div class="footer-bar">
+  <div class="footer-inner">
+    <button class="reset-btn" id="resetBtn">초기화</button>
+    <button class="submit-btn" id="submitBtn">오늘 점수 기록하기</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<section class="history">
+  <h2>기록 그래프</h2>
+  <p class="sub">최근 기록된 날짜별 총점 (30점 만점)</p>
+  <div class="chart-card">
+    <canvas id="chart" height="220"></canvas>
+    <div class="chart-empty" id="chartEmpty" style="display:none;">아직 기록된 날짜가 없어요. 오늘 점수를 기록해보세요.</div>
+  </div>
+</section>
+
+<script>
+const ROWS = [
+  { key:'wake', name:'기상', opts:[{v:1,l:'기상 후 양치·세수·물'},{v:2,l:'+옷 갈아입기'},{v:3,l:'9:00 전후 기상'}] },
+  { key:'dog', name:'봉식', opts:[{v:1,l:'기본 케어 (패드·물)'},{v:2,l:'산책 + 놀이'},{v:3,l:'충분한 산책 + 놀이'}] },
+  { key:'meal', name:'식사', opts:[{v:1,l:'끼니 챙김'},{v:2,l:'배달 + 집밥'},{v:3,l:'배달 없는 식사'}] },
+  { key:'task', name:'할일', opts:[{v:1,l:'핵심 1개'},{v:2,l:'2개'},{v:3,l:'3개'}] },
+  { key:'focus', name:'집중', opts:[{v:1,l:'2시간 +'},{v:2,l:'5시간 +'},{v:3,l:'7시간 +'}] },
+  { key:'rest', name:'휴식', opts:[{v:1,l:'쉬긴 쉼'},{v:2,l:'계획된 휴식'},{v:3,l:'휴식과 작업시간을 균형있게'}] },
+  { key:'chore', name:'집안일', opts:[{v:1,l:'5분'},{v:2,l:'15분'},{v:3,l:'30분'}] },
+  { key:'exercise', name:'운동', opts:[{v:1,l:'10분 걷기(산책)'},{v:2,l:'홈트 10분'},{v:3,l:'홈트 20-30분'}] },
+  { key:'growth', name:'성장', opts:[{v:0,l:'해당없음'},{v:3,l:'개인 그림·포폴·공부'}] },
+  { key:'wrapup', name:'마무리', opts:[{v:1,l:'내일 할일 계획'},{v:2,l:'+다이어리 작성'},{v:3,l:'+1:00 전후 수면'}] },
+];
+const MAX_SCORE = ROWS.length * 3;
+
+let selections = {};
+let currentDate = todayStr();
+
+function todayStr(){
+  const d = new Date();
+  const off = d.getTimezoneOffset();
+  const local = new Date(d.getTime() - off*60000);
+  return local.toISOString().slice(0,10);
+}
+
+function render(){
+  const root = document.getElementById('cardsRoot');
+  root.innerHTML = '';
+  ROWS.forEach((row, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const head = document.createElement('div');
+    head.className = 'card-head';
+    const sel = selections[row.key];
+    const selLabel = (sel === undefined) ? '미선택' : (sel === 0 ? '해당없음' : sel + '점');
+    head.innerHTML = `<div><span class="no">${idx+1}</span><span class="name">${row.name}</span></div>
+      <div class="status">${selLabel}</div>`;
+    card.appendChild(head);
+
+    const opts = document.createElement('div');
+    opts.className = 'options';
+    row.opts.forEach(opt => {
+      const { v: tier, l: label } = opt;
+      const btn = document.createElement('button');
+      const isSelected = selections[row.key] === tier;
+      btn.className = `opt tier${tier}` + (isSelected ? ' selected' : '');
+      btn.innerHTML = `<span class="pt">${tier}</span><span class="txt">${label}</span>`;
+      btn.addEventListener('click', () => {
+        selections[row.key] = (selections[row.key] === tier) ? undefined : tier;
+        render();
+      });
+      opts.appendChild(btn);
+    });
+    card.appendChild(opts);
+
+    const legend = document.createElement('div');
+    legend.className = 'legend';
+    legend.innerHTML = `<span><span class="dot b"></span>반드시 1점</span><span><span class="dot g"></span>평균 2점</span><span><span class="dot r"></span>하면 좋은 3점</span>`;
+    if (idx === 0) card.appendChild(legend);
+
+    root.appendChild(card);
+  });
+  updateTab();
+}
+
+function currentTotal(){
+  return Object.values(selections).reduce((sum, v) => sum + (v || 0), 0);
+}
+
+function updateTab(){
+  document.getElementById('tabScore').textContent = currentTotal();
+  document.getElementById('tabMax').textContent = MAX_SCORE;
+}
+
+// ---- Local storage wrapper (self-contained, no external service needed) ----
+const localDB = {
+  get(key){
+    const v = localStorage.getItem(key);
+    return v === null ? null : { key, value: v };
+  },
+  set(key, value){
+    try{ localStorage.setItem(key, value); return { key, value }; }
+    catch(e){ return null; }
+  },
+  list(prefix){
+    const keys = [];
+    for (let i=0; i<localStorage.length; i++){
+      const k = localStorage.key(i);
+      if (k && k.startsWith(prefix)) keys.push(k);
+    }
+    return { keys };
+  }
+};
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+async function loadDay(dateStr){
+  selections = {};
+  try{
+    const res = localDB.get('day:' + dateStr);
+    if (res && res.value){
+      const parsed = JSON.parse(res.value);
+      selections = parsed.answers || {};
+    }
+  } catch(e){
+    // no record for this day yet — that's fine
+  }
+  render();
+}
+
+async function saveDay(){
+  const total = currentTotal();
+  const payload = { date: currentDate, answers: selections, total };
+  try{
+    const result = localDB.set('day:' + currentDate, JSON.stringify(payload));
+    if (!result){
+      showToast('저장에 실패했어요. 다시 시도해주세요.');
+      return;
+    }
+    showToast(`${currentDate} 기록 완료 · ${total}점`);
+    await drawChart();
+  } catch(e){
+    showToast('저장 중 오류가 발생했어요.');
+  }
+}
+
+document.getElementById('dateInput').addEventListener('change', (e) => {
+  currentDate = e.target.value;
+  loadDay(currentDate);
+});
+
+document.getElementById('submitBtn').addEventListener('click', saveDay);
+document.getElementById('resetBtn').addEventListener('click', () => {
+  selections = {};
+  render();
+});
+
+// ---- Chart ----
+async function drawChart(){
+  const canvas = document.getElementById('chart');
+  const emptyMsg = document.getElementById('chartEmpty');
+  const ctx = canvas.getContext('2d');
+
+  let keys = [];
+  try{
+    const listRes = localDB.list('day:');
+    keys = (listRes && listRes.keys) ? listRes.keys : [];
+  } catch(e){
+    keys = [];
+  }
+
+  if (keys.length === 0){
+    canvas.style.display = 'none';
+    emptyMsg.style.display = 'block';
+    return;
+  }
+
+  let entries = [];
+  for (const k of keys){
+    try{
+      const r = localDB.get(k);
+      if (r && r.value){
+        const parsed = JSON.parse(r.value);
+        entries.push({ date: parsed.date || k.replace('day:',''), total: parsed.total || 0 });
+      }
+    } catch(e){ /* skip unreadable entries */ }
+  }
+  entries.sort((a,b) => a.date.localeCompare(b.date));
+  entries = entries.slice(-14);
+
+
+  if (entries.length === 0){
+    canvas.style.display = 'none';
+    emptyMsg.style.display = 'block';
+    return;
+  }
+  canvas.style.display = 'block';
+  emptyMsg.style.display = 'none';
+
+  const dpr = window.devicePixelRatio || 1;
+  const cssWidth = canvas.parentElement.clientWidth - 28;
+  const cssHeight = 220;
+  canvas.width = cssWidth * dpr;
+  canvas.height = cssHeight * dpr;
+  canvas.style.width = cssWidth + 'px';
+  canvas.style.height = cssHeight + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0,0,cssWidth,cssHeight);
+
+  const padTop = 14, padBottom = 34, padLeft = 8, padRight = 8;
+  const chartH = cssHeight - padTop - padBottom;
+  const chartW = cssWidth - padLeft - padRight;
+  const barGap = 8;
+  const barW = Math.max(10, Math.min(34, (chartW / entries.length) - barGap));
+
+  // gridlines
+  ctx.strokeStyle = 'rgba(60,50,30,0.12)';
+  ctx.lineWidth = 1;
+  [0, 10, 20, 30].forEach(v => {
+    const y = padTop + chartH - (v/30)*chartH;
+    ctx.beginPath();
+    ctx.moveTo(padLeft, y);
+    ctx.lineTo(cssWidth-padRight, y);
+    ctx.stroke();
+    ctx.fillStyle = '#8a8069';
+    ctx.font = '10px "Noto Sans KR", sans-serif';
+    ctx.fillText(v, padLeft, y - 3);
+  });
+
+  const step = chartW / entries.length;
+  entries.forEach((e, i) => {
+    const x = padLeft + i*step + (step-barW)/2;
+    const h = Math.max(2, (e.total/30) * chartH);
+    const y = padTop + chartH - h;
+
+    const grad = ctx.createLinearGradient(0, y, 0, padTop+chartH);
+    grad.addColorStop(0, '#B24A63');
+    grad.addColorStop(0.5, '#B4841F');
+    grad.addColorStop(1, '#4C7EA8');
+    ctx.fillStyle = grad;
+    roundRect(ctx, x, y, barW, h, 5);
+    ctx.fill();
+
+    ctx.fillStyle = '#322E27';
+    ctx.font = 'bold 10.5px "Noto Sans KR", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(e.total, x + barW/2, y - 6);
+
+    ctx.fillStyle = '#8a8069';
+    ctx.font = '9.5px "Noto Sans KR", sans-serif';
+    const label = e.date.slice(5).replace('-','/');
+    ctx.fillText(label, x + barW/2, cssHeight - 14);
+  });
+  ctx.textAlign = 'left';
+}
+
+function roundRect(ctx, x, y, w, h, r){
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.arcTo(x+w, y, x+w, y+h, r);
+  ctx.arcTo(x+w, y+h, x, y+h, r);
+  ctx.arcTo(x, y+h, x, y, r);
+  ctx.arcTo(x, y, x+w, y, r);
+  ctx.closePath();
+}
+
+// init
+(async function init(){
+  document.getElementById('dateInput').value = currentDate;
+  await loadDay(currentDate);
+  await drawChart();
+  window.addEventListener('resize', drawChart);
+})();
+</script>
+</body>
+</html>
